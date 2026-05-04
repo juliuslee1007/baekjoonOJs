@@ -1,16 +1,11 @@
 import math as m
 
 def solution(n):
-    p_n = [2]
-    for i in range(3, n + 1):
-        check = True
-        for p in p_n:
-            if p > m.sqrt(i):
-                break
-            if i % p == 0:
-                check = False
-                break
-        if check == True:
-            p_n.append(i)
+    arr = [True] * (n + 1)
+    arr[0], arr[1] = False, False
+    for i in range(2, int(m.sqrt(n)) + 1):
+        if arr[i] :
+            for j in range(i * 2, n + 1, i):
+                arr[j] = False
             
-    return len(p_n)
+    return arr.count(True)
